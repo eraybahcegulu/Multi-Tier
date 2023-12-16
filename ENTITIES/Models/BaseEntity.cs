@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ENTITIES.Models
 {
-    public class BaseEntity : IEntity
+    public abstract class BaseEntity : IEntity
     {
         public BaseEntity()
         {
