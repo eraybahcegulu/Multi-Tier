@@ -1,0 +1,30 @@
+﻿@model CategoryViewModel
+
+<h2>Categories</h2>
+
+@if (Model.Categories != null && Model.Categories.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model.Categories)
+            {
+                <tr>
+                    <td>@category.ID</td>
+                    <td>@category.CategoryName</td>
+                    <td>@category.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Kategori bulunmamaktadır.</p>
+}

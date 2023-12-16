@@ -1,0 +1,28 @@
+﻿@model ProductViewModel
+
+<h2>Products</h2>
+
+@if (Model.Products != null && Model.Products.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.ID</td>
+                    <td>@product.ProductName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Kategori bulunmamaktadır.</p>
+}
