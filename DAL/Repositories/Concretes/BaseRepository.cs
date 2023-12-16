@@ -60,13 +60,13 @@ namespace DAL.Repositories.Concretes
 
         public void AddRange(List<T> list)
         {
-            _db.Set<T>().AddRange();
+            _db.Set<T>().AddRange(list);
             _db.SaveChanges();
         }
 
         public async Task AddRangeAsync(List<T> list)
         {
-            await _db.Set<T>().AddRangeAsync();
+            await _db.Set<T>().AddRangeAsync(list);
             await _db.SaveChangesAsync();
         }
 
