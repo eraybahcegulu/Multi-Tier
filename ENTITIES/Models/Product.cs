@@ -1,6 +1,7 @@
 ﻿using ENTITIES.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,10 @@ namespace ENTITIES.Models
     {
         public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
-        public int? CategoryID { get; set; }
 
 
-        //Relational Properties
+        [ForeignKey("Category")]
+        public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
 
     }

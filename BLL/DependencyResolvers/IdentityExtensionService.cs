@@ -1,12 +1,7 @@
-﻿using DAL.Context;
-using ENTITIES.Models;
+﻿// IdentityExtensionService.cs
+using DAL.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL.DependencyResolvers
 {
@@ -14,21 +9,11 @@ namespace BLL.DependencyResolvers
     {
         public static IServiceCollection AddIdentityService(this IServiceCollection services)
         {
-            services.AddIdentity<AppUser, IdentityRole<int>>(x =>
-            {
-                x.Password.RequiredUniqueChars = 0;
-                x.Password.RequiredLength = 3;
-                x.Password.RequireNonAlphanumeric = false;
-                x.Password.RequireDigit = false;
-                x.Password.RequireLowercase = false;
-                x.Password.RequireUppercase = false;
-
-            }).AddEntityFrameworkStores<MyContext>();
-
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<MyContext>() // Use your custom context here
+                .AddDefaultTokenProviders();
 
             return services;
         }
-
-        //AddIdentity metodu kullanılarak Identity Framework için gerekli ayarlar yapılıyor.
     }
 }

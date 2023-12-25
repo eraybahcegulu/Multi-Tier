@@ -17,11 +17,4 @@ namespace DAL.Configs
 
         }
     }
-
-    //IEntityTypeConfiguration arayüzü uygulanarak Configure metodu sağlanıyor. FluentAPI ile yapılandırma sağlanıyor.
-    //Configure metodu FluentAPI ile yapılandırma ayarlarını içeriyor.
-    //EntityTypeBuilder nesnesi varlığın özelliklerini ve ilişkilerini belirtmek için Flutent API tarafından kullanılan builder nesnesidir.
-    //CategoryConfig, ProductConfig gibi özel yapılandırma sınıflarının BaseConfig<T> i genişletmesi sağlanıyor.
-    //Ortak yapılandırmalar BaseConfigde toplanıyor.
-    //Kod tekrarını önlemek.
 }

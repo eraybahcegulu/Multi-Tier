@@ -8,13 +8,7 @@ namespace ENTITIES.Enums
 {
     public enum DataStatus
     {
-        Inserted = 1,
-        Updated = 2,
-        Deleted = 3,
+        Active = 1,
+        Deleted = 2,
     }
 }
-
-/*
- enum oluşturuldu. entitylerin durumunu temsil edecek. 3 farklı durum. 
- veriler hiç bir zaman remove olmadıkça veritabanından silinmeyecek. durumu değiştirilecek.
- */
