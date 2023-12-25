@@ -1,6 +1,7 @@
 ﻿using BLL.ManagerServices.Abstracts;
 using DAL.Repositories.Abstracts;
 using ENTITIES.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,11 @@ namespace BLL.ManagerServices.Concretes
         public CategoryManager(ICategoryRepository catRepository) : base(catRepository)
         {
             _catRepository = catRepository;
+        }
+
+        public async Task<Category> GetCategoryByIdAsync(int categoryId)
+        {
+            return await _catRepository.GetCategoryByIdAsync(categoryId);
         }
     }
 }

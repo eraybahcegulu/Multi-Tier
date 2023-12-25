@@ -13,7 +13,12 @@ namespace DAL.Repositories.Concretes
     {
         public CategoryRepository(MyContext db) : base(db)
         {
-
         }
+
+        public async Task<Category> GetCategoryByIdAsync(int categoryId)
+        {
+            return await _db.Set<Category>().FindAsync(categoryId);
+        }
+
     }
 }

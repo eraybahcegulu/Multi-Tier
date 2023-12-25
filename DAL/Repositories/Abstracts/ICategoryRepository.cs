@@ -9,5 +9,6 @@ namespace DAL.Repositories.Abstracts
 {
     public interface ICategoryRepository : IRepository<Category>
     {
+        Task<Category> GetCategoryByIdAsync(int categoryId);
     }
 }

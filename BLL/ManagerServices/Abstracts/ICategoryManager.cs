@@ -9,5 +9,6 @@ namespace BLL.ManagerServices.Abstracts
 {
     public interface ICategoryManager : IManager<Category>
     {
+        Task<Category> GetCategoryByIdAsync(int categoryId);
     }
 }

@@ -12,26 +12,11 @@ namespace BLL.ManagerServices.Abstracts
     {
         IQueryable<T> GetAll();
         IQueryable<T> GetActives();
-
-        //Modify Commands
-
         string Add(T item);
-
-
-
-
-
         Task Update(T item);
-
         void Delete(T item);
-
         void Destroy(T item);
-
-
-        //Find
         Task<T> FindAsync(int id);
-
-
         IQueryable<T> Where(Expression<Func<T, bool>> exp);
     }
 }
