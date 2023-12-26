@@ -35,7 +35,7 @@ namespace Project.CoreMVCUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(CategoryViewModel item)
+        public IActionResult Add(AddCategoryViewModel item)
         {
             if (ModelState.IsValid)
             {

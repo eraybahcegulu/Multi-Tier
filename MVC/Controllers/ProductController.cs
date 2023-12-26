@@ -16,7 +16,28 @@ namespace MVC.Controllers
         }
 
 
+
+
         /*
+        public IActionResult Index()
+        {
+            List<Product> obProductList = _productManager.GetActives().ToList();
+
+            List<ProductViewModel> viewModelList = obProductList
+                .Select(product => new ProductViewModel
+                {
+                    ProductID = product.ID,
+                    ProductName = product.ProductName,
+                    UnitPrice = product.UnitPrice,
+                    CategoryID = product.CategoryID
+                })
+                .ToList();
+
+            return View(viewModelList);
+        } */
+
+
+
         public async Task<IActionResult> Index()
         {
             List<Product> obProductList = _productManager.GetActives().ToList();
@@ -38,30 +59,22 @@ namespace MVC.Controllers
             }
 
             return View(viewModelList);
-        }*/
-
-
-        public IActionResult Index()
-        {
-            List<Product> obProductList = _productManager.GetActives().ToList();
-
-            List<ProductViewModel> viewModelList = obProductList
-                .Select(product => new ProductViewModel
-                {
-                    ProductID = product.ID,
-                    ProductName = product.ProductName,
-                    UnitPrice = product.UnitPrice,
-                    CategoryID = product.CategoryID
-                })
-                .ToList();
-
-            return View(viewModelList);
         }
 
         public IActionResult Add()
         {
-            return View();
-        } 
+            List<Category> categories = _categoryManager.GetActives().ToList();
+
+            var viewModel = new AddProductViewModel
+            {
+                Categories = categories.Select(category => new CategoryViewModel
+                {
+                    CategoryID = category.ID,
+                }).ToList()
+            };
+
+            return View(viewModel);
+        }
 
         [HttpPost]
         public IActionResult Add(ProductViewModel item)
